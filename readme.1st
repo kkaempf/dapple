@@ -1,0 +1,9 @@
+Notes on this version
+=====================
+
+  * Debugger's broken, at least on Linux.  I've disabled it in the release.
+  * UI is incomplete and some other functionality (e.g., sound) is not ready.
+
+Authors:  Steve Nickolas
+          Holger Picker (video code, cpu core)
+          Marcin Woloszczuk (most of the Allegro port)
