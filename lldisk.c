@@ -99,6 +99,7 @@ int llread (int sector, unsigned char *buf)
  if (e==3) return 1;
  return -1;
  */
+ return -1;
 }
 
 int llwrite (int sector, unsigned char *buf)
@@ -122,6 +123,7 @@ int llwrite (int sector, unsigned char *buf)
  if (e==3) return 1;
  return -1;
  */
+ return -1;
 }
 
 #include <string.h>

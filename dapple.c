@@ -1725,4 +1725,5 @@ eow:
  // gmode(T80); <-- turn off the graphics
 veow:
 ;
+return 0;
 }
