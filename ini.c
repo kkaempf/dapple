@@ -22,6 +22,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <sys/param.h>
 
 extern void virtsetmonochrome(unsigned int mode);
 extern unsigned char virtgetmonochrome();
@@ -52,12 +53,16 @@ extern char parallel[128], rompath[128];
 
 void wrini(void)
 {
+ char inipath[PATH_MAX];
  FILE *file;
  unsigned char vpal;
 
  vpal=virtgetpalette();
 
- file=fopen("dapple.ini","wt");
+ sprintf(inipath, "%s/.dapple", getenv("HOME"));
+ mkdir(inipath, 0755);
+ strcat(inipath, "/dapple.ini");
+ file=fopen(inipath,"wt");
  if (!file) return;
  fprintf(file,"[Dapple]\n");
  fprintf(file,"Sound=%s\n",smode?"Yes":"No");
@@ -108,10 +113,12 @@ void wrini(void)
 
 void rdini(void)
 {
+ char inipath[PATH_MAX];
  FILE *file;
  unsigned char mono;
 
- file=fopen("dapple.ini","rt");
+ sprintf(inipath, "%s/.dapple/dapple.ini", getenv("HOME"));
+ file=fopen(inipath,"rt");
  if (!file) return;
  while (!feof(file))
  {

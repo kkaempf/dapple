@@ -177,7 +177,8 @@ putpixel(bufferzor,x,1+(y*2),vga2alleg(c));
 }
 
 extern int hdd;
-char rompath[128]={"apple.rom"};
+#define ROMDIR "/usr/share/dapple/"
+char rompath[128]={ROMDIR "apple.rom"};
 //static char cmap[16]={0,4,1,5,3,7,2,9,6,13,8,12,10,14,11,15};
 //zD was here too ]xD
 //#ifdef SAFE
@@ -1541,11 +1542,11 @@ FONT *myfont;
  strcpy(hd2,"hdv2.hdv");
 
  /* if (!isatty(fileno(stdin))) */
-   freopen("con","r",stdin);
+//   freopen("con","r",stdin);
 
 // if (argc>3) {usage(); return;}
 
-  rom=fopen("disk.rom","rb");
+  rom=fopen(ROMDIR "disk.rom","rb");
   if (!rom) {
     printf ("disk ][ : ROM not available\n");
     memset(DISKROM,0xff,sizeof(DISKROM));       /* set rom to 0xff */
@@ -1555,7 +1556,7 @@ FONT *myfont;
     fclose(rom);
   }
 
-  rom=fopen("parallel.rom","rb");
+  rom=fopen(ROMDIR "parallel.rom","rb");
   if (!rom) {
     printf ("Parallel port : ROM not available\n");
     memset(PICROM,0xff,sizeof(PICROM));         /* set rom to 0xff */
@@ -1565,7 +1566,7 @@ FONT *myfont;
     fclose(rom);
   }
 
-  rom=fopen("massstor.rom","rb");
+  rom=fopen(ROMDIR "massstor.rom","rb");
   if (!rom) {
     printf ("Mass storage devices : ROM not available\n");
     memset(HDDROM,0xff,sizeof(HDDROM));         /* set rom to 0xff */
@@ -1665,19 +1666,19 @@ FONT *myfont;
 
   rom=fopen(rompath,"rb");
   if (!rom) {
-    strcpy(rompath,"apple.rom");
+    strcpy(rompath,ROMDIR "apple.rom");
     rom=fopen(rompath,"rb");
     if (!rom) {
-      strcpy(rompath,"apple2o.rom");
+      strcpy(rompath,ROMDIR "apple2o.rom");
       rom=fopen(rompath,"rb");
       if (!rom) {
-        strcpy(rompath,"apple2m.rom");
+        strcpy(rompath,ROMDIR "apple2m.rom");
         rom=fopen(rompath,"rb");
         if (!rom) {
-          strcpy(rompath,"apple2eo.rom");
+          strcpy(rompath,ROMDIR "apple2eo.rom");
           rom=fopen(rompath,"rb");
           if (!rom) {
-            strcpy(rompath,"apple2ee.rom");
+            strcpy(rompath,ROMDIR "apple2ee.rom");
             rom=fopen(rompath,"rb");
             if (!rom) {
               printf ("No BIOS ROMs found.\n");
