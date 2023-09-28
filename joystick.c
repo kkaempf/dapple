@@ -25,7 +25,7 @@
 #include <allegro.h>
 //#include <go32.h>
 //#include <sys/farptr.h>
-
+#include "joystick.h"
 #ifdef USE_M6502
 #include "m6502.h"
 #else

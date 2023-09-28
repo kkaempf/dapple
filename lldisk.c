@@ -132,11 +132,7 @@ int llwrite (int sector, unsigned char *buf)
 #include <fcntl.h>
 //#include <io.h>
 #include "dapple.h"
-
-void InitMassStor( int slot );
-void ShutdownMassStor( void );
-byte ReadMassStorIO( word Address );
-void WriteMassStorIO( word Address, byte Data );
+#include "lldisk.h"
 
 #define MS_DMA
 

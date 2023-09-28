@@ -24,6 +24,7 @@
 
 #include <stdio.h>
 #include "dapple.h"
+#include "cpu65c02.h"
 
 #define readbus(addr) Rd6502(addr)
 #define writebus(addr, value) Wr6502(addr, value)

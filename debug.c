@@ -10,6 +10,7 @@
 //#include <conio.h>
 #include <string.h>
 #include "dapple.h"
+#include "debug.h"
 
 /* dapple.c */
 extern unsigned char debugger;

@@ -30,7 +30,9 @@
 //#include <io.h>
 #include <unistd.h>
 #include <allegro.h>
-//#include "dapple.h"
+#include "dapple.h"
+#include "disk.h"
+#include "massstor.h"
 
 #define COL_DRV_OFF  0x24
 #define COL_DRV_ON   0x25
@@ -42,11 +44,6 @@ extern void virtscreencopy();
 extern unsigned char virtcopy;
 
 char hd1[128],hd2[128];
-
-void InitMassStor( int slot );
-void ShutdownMassStor( void );
-unsigned char ReadMassStorIO( unsigned short Address );
-void WriteMassStorIO( unsigned short Address, unsigned char Data );
 
 /* NOTE: in theory ProDOS can support 4 volumes in slots 5 & 6. However,
    it never seems to perform STATUS or FORMAT calls for the 2 extra units.

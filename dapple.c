@@ -43,12 +43,22 @@
 #include <signal.h>
 
 #include "dapple.h"
+#include "binmanip.h"
+#include "cpu65c02.h"
+#include "debug.h"
+#include "disk.h"
 #include "gui.h"
+#include "joystick.h"
+#include "lldisk.h"
+#include "massstor.h"
+#include "video.h"
 #include <allegro.h>
 
 #ifdef EMUZ80
 int Z80_Execute (void);
 #endif
+
+BITMAP *bufferzor;
 
 unsigned char keycapslock = 1;
 unsigned char keyswitchyz = 0;
@@ -80,10 +90,6 @@ unsigned char memlcramw;                /* write LC RAM or ROM?                 
 unsigned char memlcbank2;               /* read from LC bank 1 or LC bank 2                     */
 unsigned char memann3;                  /* annunciator #3                                       */
 unsigned char memnolc = 0;              /* Is there a LC card installed?                        */
-void memoryreset();
-void memoryclear();
-unsigned char Rd6502(unsigned short address);
-void Wr6502(register unsigned short address, register unsigned char value);
 extern unsigned char reload (char *bios);
 
 Charset charmode=USA;
@@ -135,13 +141,6 @@ extern void virtwrite4000(register unsigned int addr);
 extern void virtwrite4000aux(register unsigned int addr);
 // unsigned int rasterline = 0;
 
-/* cpu65c02.c */
-extern void cpuinit();
-extern void cpureset();
-extern void cpurun();
-extern void cpusetpc(unsigned short address);
-extern unsigned short cpugetpc();
-extern unsigned short rasterline;
 /* debug.c */
 extern void Debug6502();
 

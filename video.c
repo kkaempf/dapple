@@ -27,6 +27,8 @@
 #include <string.h>
 #include <allegro.h>
 #include "dapple.h"
+#include "gui.h"
+#include "video.h"
 
 /* changed_this */
 #include "font.h"

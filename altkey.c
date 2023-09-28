@@ -23,6 +23,12 @@
 
 //#include <dos.h>
 #include <allegro.h>
+#include "cpu65c02.h"
+#include "dapple.h"
+#include "debug.h"
+#include "disk.h"
+#include "prtsc.h"
+#include "video.h"
 
 extern int k;
 

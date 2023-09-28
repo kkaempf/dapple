@@ -131,4 +131,11 @@ struct rgb
 typedef unsigned char byte;
 typedef unsigned short int word;
 //zD
-BITMAP *bufferzor;
+extern BITMAP *bufferzor;
+
+unsigned char Rd6502(register unsigned short address);
+void Wr6502(register unsigned short address, register unsigned char value);
+void setshiftmanip (int x);
+
+void memoryreset();
+void memoryclear();

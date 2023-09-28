@@ -30,6 +30,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include "dapple.h"
+#include "gui.h"
 
 extern unsigned char virtscreen[128000];
 //#define virtplot(x,y,c) virtscreen[(y*320)+x]=c

@@ -21,8 +21,11 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/param.h>
+#include <sys/stat.h>
+#include "dapple.h"
 
 extern void virtsetmonochrome(unsigned int mode);
 extern unsigned char virtgetmonochrome();
@@ -43,11 +46,6 @@ extern int tweakbksp;
 extern unsigned char memnolc;
 
 extern unsigned int GameMinX, GameMinY, GameMaxX, GameMaxY;
-
-typedef enum {USA, France, Germany, UK, Denmark1, Sweden, Italy, Spain,
-              Japan, Norway, Denmark2} Charset;
-
-extern Charset charmode;
 
 extern char parallel[128], rompath[128];
 

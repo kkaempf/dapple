@@ -25,6 +25,7 @@
 #include <string.h>
 //#include "m6502.h"
 #include "dapple.h"
+#include "binmanip.h"
 
 /* dapple.c */
 extern int smode;
